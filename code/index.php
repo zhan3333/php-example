@@ -1,9 +1,12 @@
-<?php
-/**
- * @desc
- * @author zhan <grianchan@gmail.com>
- * @since 2017/7/27 13:51
- */
+<html>
+<head>
 
-print_r($argv);
-echo 'hello world';
+</head>
+<body>
+
+<?php
+echo "hello world";
+?>
+
+</body>
+</html>
