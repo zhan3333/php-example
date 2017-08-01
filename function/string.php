@@ -8,7 +8,7 @@
 
 $str = 'hello world!';
 
-// 获取字符串长度
+// 获取字符串长度 strlen()
 $len = strlen($str);
 echo "字符串长度为： $len \n";
 

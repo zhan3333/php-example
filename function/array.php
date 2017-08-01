@@ -29,7 +29,7 @@ $arr2 = [
 $arr_merge = array_merge($arr, $arr2);
 var_dump($arr_merge);
 
-// 倒序排列数组
+// 倒序排列数组 array_reverse()
 $reverse = array_reverse($arr_merge);
 var_dump($reverse);
 
@@ -50,4 +50,9 @@ $shift = array_shift($arr); // 弹出数组最开始的值
 var_dump($shift);
 var_dump($arr);
 array_unshift($arr, $shift);    // 向数组开头插入一个值
+var_dump($arr);
+
+// sort 自然排序
+$arr = ['zhan', 'zhai', 'xu', 'li', 'ai'];
+sort($arr);
 var_dump($arr);
