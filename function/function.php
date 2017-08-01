@@ -39,6 +39,12 @@ function fun6 ($num) {
     }
 }
 
+// 通过func_get_args() 获取函数的参数
+function fun7 () {
+    var_dump(func_get_args());
+    var_dump(func_get_arg(3));
+}
+
 // 调用函数
 fun1();
 $ret = fun2();
@@ -49,4 +55,4 @@ $num = 0;
 fun5($num);
 echo "num is $num \n";
 fun6(10);
-
+fun7(1, 2, 3, 'test');
