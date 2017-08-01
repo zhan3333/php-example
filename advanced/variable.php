@@ -7,6 +7,7 @@
 
 // empty 空值的判定 '', 0, 0.0, '0', null, false, [], 均被看为false
 $arr = ['test1', 'test2', 'test3'];
+//            0       1       2
 var_dump(empty(""));        // true
 var_dump(empty(0));         // true
 var_dump(empty(0.0));       // true
@@ -44,18 +45,19 @@ $c = '';
 $d = Null;
 $f = 0;
 $e = [];
-var_dump($a == $b);     // true
+var_dump($a == $b);     // true  相等
 var_dump($a == $c);     // true
 var_dump($a == $d);     // true
 var_dump($a == $f);     // true
 var_dump($a == $e);     // true
 
 // 严格要求类型也相等时用===
-var_dump($a === $b);     // false
+var_dump($a === $b);     // false  等价于
 var_dump($a === $c);     // false
 var_dump($a === $d);     // false
 var_dump($a === $f);     // false
 var_dump($a === $e);     // false
+var_dump($a === false);     // true
 
 
 

@@ -25,17 +25,23 @@ function fun4 ($a, $b = 'default') {
     echo __FUNCTION__ . " a = $a, b = $b \n";
 }
 
-// 引用参数
+// 引用传参
 function fun5 (&$num) {
     $num ++;
+}
+
+function fun51 ($num) {
+    $num  = 100000;
 }
 
 // 递归调用
 
 function fun6 ($num) {
-    echo "$num\n";
     if ($num > 0) {
+        echo "$num\n";
         fun6($num - 1);
+    } else {
+        echo "终止\n";
     }
 }
 
@@ -54,5 +60,10 @@ fun4('test');
 $num = 0;
 fun5($num);
 echo "num is $num \n";
+
+fun51($num);
+echo "num is $num \n";
+
 fun6(10);
+
 fun7(1, 2, 3, 'test');

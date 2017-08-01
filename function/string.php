@@ -18,8 +18,14 @@ $arr = [
     'world',
     '!'
 ];
-$str = implode(' ', $arr);
+$str = implode(',', $arr);
 echo "implode合成的字符串为：$str \n";
+
+$ret = '';
+for ($i = 0; $i < count($arr); $i ++) {
+    $ret .= $arr[$i];
+}
+echo $ret . PHP_EOL;
 
 // explode() 将字符串拆分为数组
 $str = 'hello world !';
@@ -36,6 +42,11 @@ var_dump(ltrim($str));
 // stripos()  strpos() 查找字符串位置
 $str = 'hello world !';
 $ret = stripos($str, 'llo');        // 不区分大小写版本
+
+$str = '中国共产党';
+// 找到共字以后的字符串
+$ret = strpos( $str, '共');
+
 echo "str中找到llo位置为: $ret \n";
 $ret = stripos($str, 'no exist');   // 查找不存在的字符串
 echo "str中找到no exist位置为: $ret \n";
@@ -50,6 +61,12 @@ echo "反转后的字符串为: $rev_str \n";
 $str = 'hello world !';
 $sub_str = substr($str, 0, 5);
 echo "裁剪后的字符串为： $sub_str \n";
+
+$str = '普通高校在校生或毕业 5 年内的普通高校毕业生创业企业';
+$star = mb_strpos($str, '普通', 1);
+echo $star . PHP_EOL;
+$ret = mb_substr($str, 0, $star);
+echo $ret . PHP_EOL;
 
 // 字符串大小写转换 strtoupper() strtolower()
 $str = 'hello world !';
