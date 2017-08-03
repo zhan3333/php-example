@@ -7,18 +7,21 @@
 
 
 $username = 'root';
-$password = 'Z283779377g';
+$password = 'z283779377g';
 $host = 'localhost';
-$dbname = 'example';
+$dbname = 'test';
 
 // 连接到数据库
 $db = new PDO("mysql:host=$host;dbname=$dbname", $username, $password);
 
+$id = 1;
+
 $sql = "select * from users";
+
 $ret = $db->query($sql);
-var_dump($ret->fetchObject());
-//while ($row = $ret->fetch()) {
-//    var_dump($row);
-//}
+
+while ($row = $ret->fetchObject()) {
+    var_dump($row);
+}
 
 $db = null;

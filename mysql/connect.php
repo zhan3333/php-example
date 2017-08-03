@@ -6,9 +6,9 @@
  */
 
 $username = 'root';
-$password = 'Z283779377g';
+$password = 'z283779377g';
 $host = 'localhost';
-$dbname = 'example';
+$dbname = 'test';
 
 // 连接到数据库
 $db = new PDO("mysql:host=$host;dbname=$dbname", $username, $password);
