@@ -136,8 +136,14 @@ class BaseResponse
     private function query($sql)
     {
         $ret = $this->db->query($sql);
+        $ret->queryString;
         if ($this->debug) {
-            var_dump($sql);
+            $query_str = addslashes($ret->queryString);
+            echo "<script>console.log('query:', '{$query_str}')</script>";
+            if ($ret->errorInfo()) {
+                $error_str = json_encode($ret->errorInfo());
+                echo "<script>console.log('ret:', '{$error_str}')</script>";
+            }
         }
         return $ret;
     }
