@@ -125,7 +125,11 @@ class BaseResponse
      */
     public function setDebug($debug)
     {
-        $this->debug = $debug;
+        if (is_bool($debug)) {
+            $this->debug = $debug;
+        } else {
+            throw new Exception('debug必须设置为bool类型');
+        }
     }
 
     /**
