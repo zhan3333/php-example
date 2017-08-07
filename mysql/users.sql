@@ -1,0 +1,1 @@
+CREATE TABLE users (id int auto_increment, name VARCHAR(20) not null, age INTEGER(3) not null, sex char(1) not null, birthday date not null, PRIMARY KEY (`id`));

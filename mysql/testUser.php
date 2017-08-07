@@ -5,18 +5,19 @@
  * @since 2017/8/3 17:21
  */
 
-require './UserResponse.php';
+require __DIR__ . '/lib/BaseResponse.php';
 
 $username = 'root';
-$password = 'Z283779377g';
+$password = 'z283779377g';
 $host = 'localhost';
-$dbname = 'example';
+$dbname = 'test';
 
-$ur = new UserResponse($username, $password, $dbname, $host);
-$user = $ur->getUserById(2);
+$ur = new BaseResponse($username, $password, $dbname, $host);
+$ur->setTableName('users');
+$user = $ur->find(1);
 var_dump($user);
 
-$users = $ur->getUserByName('zhan01');
+$users = $ur->get([['name', '=', 'zhan01']]);
 var_dump($users);
 
 $ret = $ur->insert([
