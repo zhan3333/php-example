@@ -5,12 +5,13 @@
  * @since 2017/8/8 16:50
  */
 
+// 初始化curl句柄
 $curl = curl_init();
 
 // 设置请求url
 curl_setopt($curl, CURLOPT_URL, 'http://example.com');
 
-// 设置header响应头是否输出
+// 设置header响应头是否输出 response headers
 curl_setopt($curl, CURLOPT_HEADER, 1);
 
 // 是否返回结果

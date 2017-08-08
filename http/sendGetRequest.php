@@ -7,11 +7,16 @@
 
 $wd = '这里填百度的关键词';
 
-$getData = "?wd=$wd";
+$queryData = [
+    'wd' => $wd,
+    'name' => 'zhan'
+];
+
+$queryStr = http_build_query($queryData);
 
 $curl = curl_init();
 
-curl_setopt($curl, CURLOPT_URL, 'http://www.baidu.com/s' . $getData);
+curl_setopt($curl, CURLOPT_URL, 'http://www.baidu.com/s?' . $queryStr);
 
 curl_setopt($curl, CURLOPT_RETURNTRANSFER, 1);
 

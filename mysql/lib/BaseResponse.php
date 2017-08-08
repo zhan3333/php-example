@@ -220,6 +220,7 @@ class BaseResponse
     /**
      * 解析sql语句中的 where 后面部分
      * select * from users where name = 'zhan' and age < 28;
+     * where 字段名 判断符 值 and 字段名 判断符 值 and 字段名 判断符 值
      * @param $where
      * [
      *  [
