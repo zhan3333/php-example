@@ -13,6 +13,7 @@ $arr = [
     ]
 ];
 
+// 字符编码的编码
 // 直接进行json编码，一些字符可能会编码成\uXXXX 的样式
 $jsonStr1 = json_encode($arr);
 
@@ -34,3 +35,31 @@ var_dump($decode2);
 $decode3 = json_decode($jsonStr1, true);
 
 var_dump($decode3);
+
+/**
+ * 用户类
+ * Class User
+ */
+class User {
+    public $name = 'zhan';
+    public $age = 23;
+    public $book = ['数学', '英语', '语文'];
+    private $sex = '男';
+
+    public function fun1 () {}
+}
+
+$user = new User();
+
+var_dump($user);
+
+$userStr = json_encode($user, JSON_UNESCAPED_UNICODE);
+
+var_dump($userStr);
+
+$userObj = json_decode($userStr);
+
+var_dump($userObj);
+
+
+// 使用 json_encode 和 json_decode 的时候，数组和对象互相转换的作用(对象只会保留public类型的变量)

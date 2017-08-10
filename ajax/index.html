@@ -3,44 +3,25 @@
 <head>
     <meta charset="UTF-8">
     <title>测试获取json数据</title>
-    <script src="https://cdn.bootcss.com/jquery/3.2.1/jquery.js"></script>
+    <script src="jquery-3.2.1.js"></script>
 </head>
 <body>
-<div>
-    <table border="1">
-        <tr>
-            <td>名字</td>
-            <td id="name"></td>
-        </tr>
-        <tr>
-            <td>性别</td>
-            <td id="sex"></td>
-        </tr>
-        <tr>
-            <td>年龄</td>
-            <td id="age"></td>
-        </tr>
-    </table>
-</div>
-<div>
-    发送消息： <input type="text" id="text">
-    <button id="addUser">发送</button>
-</div>
+<div id="myDiv"></div>
 </body>
 <script>
-    $.get('/json/getUserInfo.php', function (data) {
-        console.log(data)
-        $('#name').text(data.name)
-        $('#sex').text(data.sex)
-        $('#age').text(data.age)
+    $.get('/json/server.php', function (result) {
+        console.log(result, result.length)
+        for (key in result) {
+            var html = '<span>' + key + ': ' + result[key] + '</span><br/>'
+            $('#myDiv').append(html)
+        }
     }, 'json')
-    $('#addUser').click(function () {
-        console.log('click button')
-        var text = $('#text').val()
-        var data = {text: text}
-        $.post('/json/addUser.php', data, function (ret) {
-            console.log(ret)
-        }, 'json')
-    })
+    $.post('/json/server.php', function (result) {
+        console.log(result, result.length)
+        for (key in result) {
+            var html = '<span>' + key + ': ' + result[key] + '</span><br/>'
+            $('#myDiv').append(html)
+        }
+    }, 'json')
 </script>
 </html>

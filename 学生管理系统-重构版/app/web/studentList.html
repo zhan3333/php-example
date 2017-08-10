@@ -23,7 +23,7 @@
 <a href='./addStudent.html'><button type="button">添加学生信息</button></a>
 </body>
 <script>
-    var postData = {'action': 'get_student_list'}
+    var postData = {action: 'get_student_list'}
     $.post(
         'http://php-example.com:1024/student.php',
         postData,
