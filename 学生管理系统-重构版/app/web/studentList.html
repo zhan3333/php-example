@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>学生信息列表</title>
+    <script src="./lib/js/jquery-3.2.1.js"></script>
+</head>
+<body>
+<h1 style="text-align: center;">学生信息列表</h1>
+<table border="1px" style="width: 100%;" id="table">
+    <tr id="tableTitle">
+        <td>编号</td>
+        <td>姓名</td>
+        <td>性别</td>
+        <td>生日</td>
+        <td>身份证号</td>
+        <td>学号</td>
+        <td>入学时间</td>
+        <td>专业</td>
+        <td>操作</td>
+    </tr>
+    <!--ajax载入学生信息-->
+</table>
+<a href='./addStudent.html'><button type="button">添加学生信息</button></a>
+</body>
+<script>
+    var postData = {'action': 'get_student_list'}
+    $.post(
+        'http://php-example.com:1024/student.php',
+        postData,
+        function (result) {
+            console.log(result)
+            var studentList = result.data.studentList
+            for (key in studentList) {
+                var student = studentList[key]
+                var html = "<tr> " +
+                    "<td>" + student.id + "</td> " +
+                    "<td>" + student.name + "</td> " +
+                    "<td>" + student.sex + "</td> " +
+                    "<td>" + student.birthday + "</td> " +
+                    "<td>" + student.id_card + "</td> " +
+                    "<td>" + student.student_id + "</td> " +
+                    "<td>" + student.admission_time + "</td> " +
+                    "<td>" + student.profession + "</td> " +
+                    "<td> " +
+                    "<a href='updateStudent.html?id=" + student.id + "'><button>修改</button></a> " +
+                    "<a><button>删除</button></a> " +
+                    "</td> " +
+                    "</tr>"
+                $('#table').append(html)
+            }
+        },
+        'json'
+    )
+    $()
+</script>
+</html>

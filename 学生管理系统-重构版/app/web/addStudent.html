@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>添加学生</title>
+    <script src="./lib/js/jquery-3.2.1.js"></script>
+</head>
+<body>
+    <table>
+        <tr>
+            <td>姓名：</td>
+            <td><input type="text" name="name"></td>
+        </tr>
+        <tr>
+            <td>性别：</td>
+            <td><input type="text" name="sex"></td>
+        </tr>
+        <tr>
+            <td>生日：</td>
+            <td><input type="date" name="birthday"></td>
+        </tr>
+        <tr>
+            <td>身份证：</td>
+            <td><input type="text" name="id_card"></td>
+        </tr>
+        <tr>
+            <td>学号：</td>
+            <td><input type="text" name="student_id"></td>
+        </tr>
+        <tr>
+            <td>入学时间：</td>
+            <td><input type="date" name="admission_time"></td>
+        </tr>
+        <tr>
+            <td>专业：</td>
+            <td><input type="text" name="profession"></td>
+        </tr>
+        <tr>
+            <td><input type="button" value="确认" id="submit"></td>
+            <td></td>
+        </tr>
+    </table>
+</body>
+<script>
+    $('#submit').click(function () {
+        var postData = {
+            name: $("input[name='name']").val(),
+            sex: $("input[name='sex']").val(),
+            birthday: $("input[name='birthday']").val(),
+            id_card: $("input[name='id_card']").val(),
+            student_id: $("input[name='student_id']").val(),
+            admission_time: $("input[name='admission_time']").val(),
+            profession: $("input[name='profession']").val(),
+            action: 'add_student'
+        }
+        $.post(
+            'http://php-example.com:1024/student.php',
+            postData,
+            function (data) {
+                console.log(data)
+                alert(data.msg)
+                if (data.code === 0) {
+                    location.href = '/studentList.html'
+                }
+            },
+            'json'
+        )
+    })
+</script>
+</html>
