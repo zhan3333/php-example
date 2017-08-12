@@ -5,12 +5,13 @@
  * @since 2017/8/11 15:53
  */
 
-$password = 123456;
+$password = 'z28377937g';
 
 // 简单md5加密
+// 很容易被破解
 $md5 = md5($password);
 
-var_dump($md5);
+var_dump($md5); // 长度固定32
 
 // 加盐md5加密;
 

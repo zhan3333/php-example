@@ -6,7 +6,7 @@
  */
 $password = '123456';
 
-// 进行加密
+// 进行离散加密
 $hash_password = password_hash($password, PASSWORD_DEFAULT);
 
 var_dump($hash_password);
