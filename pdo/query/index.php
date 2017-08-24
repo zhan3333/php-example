@@ -17,8 +17,10 @@ try {
     exit();
 }
 
-$result = $db->query("select * from USER");
+// 获取PDOStatement对象
+$result = $db->query("select * from user");
 
+// 获取所有结果
 $users = $result->fetchAll();
 
 var_dump($users);

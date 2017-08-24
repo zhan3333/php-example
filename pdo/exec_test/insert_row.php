@@ -12,11 +12,18 @@ try {
     exit();
 }
 
-$result = $db->exec("insert into USER values (null, 'zhan', 23)");
+/**
+ * 通过 exec 插入一条数据
+ * 修改的条数，包括插入数据这种类型
+ */
+$result = $db->exec("insert into user values (null, 'zhan', 22), (null, 'zhan02', 22)");
+
+// 在sql语句中，未标单引号的字符串，会被当作关键字或者字段名或者表名来处理
 
 var_dump($result);              // -> 1
 
 /**
+ * 返回上一次sql操作时的错误信息
  * -> [
  *  '00000',
  *  NULL,

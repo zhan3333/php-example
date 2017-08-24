@@ -17,15 +17,23 @@ try {
     exit();
 }
 
-// : 号形式
-$sql = "select * from USER where id = :id";
-$sth1 = $db->prepare($sql);
-$sth1->execute([':id' => 1]);
-var_dump($sth1->fetchAll());
+/**
+ *  fetchAll ()
+ * 第一个参数，
+ * 使用 FETCH_NAMED 时，返回键值对数组
+ * 使用 FETCH_NUM 时，返回索引数组
+ * 使用 FETCH_OBJ 时， 返回对象
+ */
 
-// ? 号形式
-$sql = "select * from USER where id = ?";
+// : 号形式 (命名占位符)
+$sql = "select * from user where id = :wangdalu";
+$sth1 = $db->prepare($sql);
+$sth1->execute([':wangdalu' => 1]);
+var_dump($sth1->fetchAll($db::FETCH_NAMED));
+
+// ? 号形式 (问号占位符)
+$sql = "select * from user where id = ?";
 $sth2 = $db->prepare($sql);
-$sth2->execute([1]);
-var_dump($sth2->fetchAll());
+$sth2->execute([2]);
+var_dump($sth2->fetchAll($db::FETCH_NUM));
 

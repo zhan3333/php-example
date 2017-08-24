@@ -13,7 +13,7 @@ try {
 }
 
 echo "插入操作(错误的语句)..." . PHP_EOL;
-$result = $db->exec("insert into USER value (null, 'zhan', 22, null)");
+$result = $db->exec("insert into user value (null, 'zhan', 22, null)");
 
 /**
  * result:

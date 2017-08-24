@@ -31,7 +31,7 @@ try {
 }
 
 // : 号形式
-$sql = "select * from USER where id = :id";
+$sql = "select * from user where id = :id";
 $sth1 = $db->prepare($sql);
 $id = 1;
 $sth1->bindParam(':id', $id);
@@ -39,9 +39,23 @@ $sth1->execute();
 var_dump($sth1->fetchAll());
 
 // ? 号形式
-$sql = "select * from USER where id = ?";
+$sql = "select * from user where id = ? and age = ?";
 $sth2 = $db->prepare($sql);
 $id = 1;
 $sth2->bindParam(1, $id);
-$sth2->execute([1]);
+$age = 23;
+$sth2->bindParam(2, $age);
+$sth2->execute();
 var_dump($sth2->fetchAll());
+
+/**
+ * 错误的示例
+ * query 按顺序执行了prepare 和 execute
+ * bind操作需要在prepare和execute中间
+ *
+ * query 不接受占位符的sql语句
+ */
+$state = $db->query('select * from user where id = 2');
+$id = 3;
+$state->bindParam(':id', $id);      // 不起任何作用的
+var_dump($state->fetchAll());
