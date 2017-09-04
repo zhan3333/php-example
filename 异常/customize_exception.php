@@ -30,9 +30,17 @@ class MyException extends Exception
      */
     public function __toString()
     {
-        return __CLASS__ . " 文件： $this->file, 行数： $this->line, 错误代码为： $this->code, 错误消息为: $this->message";
+        // todo 获取子类的类名
+        return get_class() . " 文件： $this->file, 行数： $this->line, 错误代码为： $this->code, 错误消息为: $this->message";
     }
+
+    // 包括了 getFile() ....
+}
+
+class SecondException extends MyException
+{
+
 }
 
 // 手动抛出了一个异常
-throw new MyException('手动抛出的一个异常', 10086);
+throw new SecondException('手动抛出的一个异常', 10086);
