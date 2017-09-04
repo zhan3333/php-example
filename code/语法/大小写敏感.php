@@ -18,9 +18,9 @@ function Fun1 () {
     echo 'fun1' . PHP_EOL;
 }
 
-fun1();
-Fun1();
-FUN1();
+do_fun();
+do_fun();
+do_fun();
 
 // 类
 class User {

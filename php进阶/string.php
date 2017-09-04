@@ -82,9 +82,9 @@ $fun1 = 'fun1val';
 
 // {$ 必须紧密相连的
 // ↓ {${fun1()}} => {$fun1} => fun1val
-echo "this is {${fun1()}}" . PHP_EOL; // 调用方法
+echo "this is {${do_fun()}}" . PHP_EOL; // 调用方法
 
-$val = ${fun1()};       // todo 跳过，暂时不理解
+$val = ${do_fun()};       // todo 跳过，暂时不理解
 
 var_dump($var);
 

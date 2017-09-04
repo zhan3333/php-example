@@ -52,7 +52,7 @@ function fun7 () {
 }
 
 // 调用函数
-fun1();
+do_fun();
 $ret = fun2();
 echo "fun2 return is $ret \n";
 fun3('test');
